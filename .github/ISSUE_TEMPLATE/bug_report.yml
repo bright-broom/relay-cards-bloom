@@ -1,0 +1,37 @@
+name: 不具合報告
+description: 再現可能な不具合を記録します
+title: "[Bug] "
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: Secret、実在人物の情報、顧客データ、名刺画像は記載・添付しないでください。
+  - type: textarea
+    id: summary
+    attributes:
+      label: 概要
+      description: 期待した結果と実際の結果を簡潔に記載してください。
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: 再現手順
+      placeholder: |
+        1. …を開く
+        2. …を操作する
+        3. …が発生する
+    validations:
+      required: true
+  - type: textarea
+    id: environment
+    attributes:
+      label: 環境
+      description: URL、ブラウザー、端末、Commit SHA などを記載してください。
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: 確認材料
+      description: 合成データだけを使い、必要に応じて画像やエラー概要を添付してください。

@@ -1,0 +1,40 @@
+{
+  "name": "relay-cards",
+  "version": "0.2.0",
+  "type": "module",
+  "private": true,
+  "description": "名刺を次の行動へつなぐ法人向け人脈ワークスペース",
+  "engines": {
+    "node": "24.x"
+  },
+  "packageManager": "npm@11.17.0",
+  "scripts": {
+    "dev": "next dev --hostname 127.0.0.1 --port 4174",
+    "build": "next build",
+    "start": "next start --hostname 127.0.0.1 --port 4174",
+    "lint": "eslint . --max-warnings=0",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "architecture:check": "node scripts/check-architecture.mjs",
+    "repository:check": "node scripts/check-repository-governance.mjs",
+    "security:check": "node scripts/check-client-security-boundary.mjs",
+    "verify": "npm run lint && npm run typecheck && npm run test && npm run architecture:check && npm run security:check && npm run repository:check",
+    "build:vercel": "npm run verify && next build",
+    "check": "npm run build:vercel"
+  },
+  "dependencies": {
+    "next": "16.3.3",
+    "react": "19.2.8",
+    "react-dom": "19.2.8"
+  },
+  "devDependencies": {
+    "@types/node": "24.10.15",
+    "@types/react": "19.2.14",
+    "@types/react-dom": "19.2.3",
+    "eslint": "9.39.5",
+    "eslint-config-next": "16.3.3",
+    "typescript": "6.0.3",
+    "vitest": "4.1.0"
+  }
+}
