@@ -1,0 +1,10 @@
+* @bright-broom
+
+# 品質・セキュリティー・リリース境界
+/.github/ @bright-broom
+/scripts/ @bright-broom
+/tests/ @bright-broom
+/src/proxy.ts @bright-broom
+/src/shared/security/ @bright-broom
+/next.config.ts @bright-broom
+/vercel.json @bright-broom
