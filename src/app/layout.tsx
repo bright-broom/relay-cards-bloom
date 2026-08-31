@@ -14,5 +14,5 @@ export const metadata: Metadata = {
 
 export default async function RootLayout({ children }: Readonly<{ children: ReactNode }>) {
   await connection();
-  return <html lang="ja"><body><WorkspaceProvider><AppShell>{children}</AppShell></WorkspaceProvider></body></html>;
+  return <html data-scroll-behavior="smooth" lang="ja"><body><WorkspaceProvider><AppShell>{children}</AppShell></WorkspaceProvider></body></html>;
 }

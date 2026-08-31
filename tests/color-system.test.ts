@@ -41,4 +41,22 @@ describe("three-color system", () => {
     expect(contrastRatio("#f4f5ef", "#10231d")).toBeGreaterThanOrEqual(7);
     expect(contrastRatio("#c8f07e", "#10231d")).toBeGreaterThanOrEqual(7);
   });
+
+  it("補助情報を含めて 10 px 未満の文字を作らず、主要操作の最小高を固定する", () => {
+    const pixelFontSizes = [...css.matchAll(/font-size:\s*(\d+)px/g)].map(([, size]) => Number(size));
+    expect(Math.min(...pixelFontSizes)).toBeGreaterThanOrEqual(10);
+    expect(css).toContain("--tap-min: 44px");
+    expect(css).toContain("min-height: var(--tap-min)");
+  });
+
+  it("黄金比を余白と主要 2 カラムの設計トークンとして保持する", () => {
+    expect(css).toContain("--phi: 1.618");
+    expect(css).toContain("--space-1: 10px");
+    expect(css).toContain("--space-2: 16px");
+    expect(css).toContain("--space-3: 26px");
+    expect(css).toContain("--space-4: 42px");
+    expect(css).toContain("--space-5: 68px");
+    expect(css).toContain("--font-body: 14px");
+    expect((css.match(/1\.618fr/g) ?? []).length).toBeGreaterThanOrEqual(5);
+  });
 });

@@ -10,12 +10,12 @@ type ViewHeadingProps = {
 export function ViewHeading({ action, description, kicker, title }: ViewHeadingProps) {
   return (
     <header className="view-heading">
-      <div>
+      <div className="view-heading-copy">
         <span className="eyebrow">{kicker}</span>
         <h1>{title}</h1>
         <p>{description}</p>
       </div>
-      {action}
+      {action && <div className="view-heading-action">{action}</div>}
     </header>
   );
 }
